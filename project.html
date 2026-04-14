@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Yeti Home Construction</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons and Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        :root {
+            --color-primary: #f59e0b;
+            --color-dark: #0f172a;
+            --color-darker: #020617;
+            --color-white: #ffffff;
+            --color-grey: #64748b;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 0.2s ease;
+            --project-card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+       
+        .btn-primary { 
+            background: var(--color-primary); 
+            color: var(--color-white); 
+            border: none; 
+            padding: 0.7rem 1.5rem; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            cursor: pointer; 
+        }
+
+        /* --- Project Sections --- */
+        section { padding: 5rem 0; }
+        .section-badge { color: var(--color-primary); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
+        h2 { font-size: 2.5rem; color: var(--color-darker); margin-bottom: 3rem; }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            background-color: var(--project-card-bg);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+        }
+
+        .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .project-card img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .project-card:hover img { transform: scale(1.1); }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .project-card:hover .card-overlay { opacity: 1; }
+        .card-overlay h3 { color: #fff; font-size: 1.4rem; margin-bottom: 0.3rem; }
+        .card-overlay p { color: var(--color-primary); font-weight: 700; font-size: 0.9rem; }
+
+        /* --- Modal --- */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(2, 6, 23, 0.92);
+            backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+            padding: 1.5rem; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-box {
+            background: var(--color-white); width: min(920px, 95vw); border-radius: 20px;
+            overflow: hidden; position: relative; transform: scale(0.9) translateY(20px); transition: 0.4s ease;
+        }
+        .modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: #eee; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; }
+
+        .project-modal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .project-modal-body img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+        .project-modal-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+
+
+        @media (max-width: 992px) {
+            .project-modal-body { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+     <div class="top-bar">
+        <div class="container flex-between">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Nepal</span>
+                <span><i class="fas fa-envelope"></i> aasharokaya90@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Yeti Home Construction Logo" class="logo-img">
+                <span>Yeti Home <strong>Construction</strong></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="about.html" class="active">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Overview</a></li>
+                    </ul>
+                </li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn-primary" id="request-quote-btn" onclick="window.open('https://wa.me/9779764478818?text=Hi%20Yeti%20Home%20Construction%2C%20I%20would%20like%20to%20request%20a%20consultation.', '_blank')">Request Quote</button>
+        </div>
+    </nav>
+    <section id="projects" class="container">
+        <div class="text-center">
+            <span class="section-badge">Precision & Strength</span>
+            <h2>Engineering Projects</h2>
+        </div>
+        <div class="project-grid">
+            <div class="project-card" 
+                 data-title="The Central Atrium" 
+                 data-detail="A multi-billion rupee commercial hub featuring sustainable glass architecture and seismic-resistant steel framing."
+                 data-img="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Building">
+                <div class="card-overlay">
+                    <h3>The Central Atrium</h3>
+                    <p>Commercial Infrastructure</p>
+                </div>
+            </div>
+
+            <div class="project-card" 
+                 data-title="Skyline Bridge" 
+                 data-detail="Heavy-duty industrial bridge design focused on durability and high load capacity for urban transit."
+                 data-img="https://images.unsplash.com/photo-1445583939503-113f87b00244?auto=format&fit=crop&q=80&w=1000">
+                <img src="https://images.unsplash.com/photo-1445583939503-113f87b00244?auto=format&fit=crop&q=80&w=1000" alt="Bridge">
+                <div class="card-overlay">
+                    <h3>Skyline Bridge</h3>
+                    <p>Public Infrastructure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="design" style="background: #f8fafc;">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Aesthetics & Innovation</span>
+                <h2>Architectural Designs</h2>
+            </div>
+            <div class="project-grid">
+                <div class="project-card" 
+                     data-title="Smart Living Villa" 
+                     data-detail="Concept for eco-friendly luxury living, featuring integrated smart-home technology and solar energy."
+                     data-img="https://images.unsplash.com/photo-1600585154340-be6199f7a009?auto=format&fit=crop&q=80&w=1000">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6199f7a009?auto=format&fit=crop&q=80&w=1000" alt="Villa">
+                    <div class="card-overlay">
+                        <h3>Smart Living Villa</h3>
+                        <p>Residential Design</p>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                     data-title="Modern Office Hub" 
+                     data-detail="Open-concept office space designed to boost productivity with natural lighting and ergonomic layouts."
+                     data-img="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Office">
+                    <div class="card-overlay">
+                        <h3>Modern Office Hub</h3>
+                        <p>Corporate Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-box">
+            <button type="button" class="close-modal">&times;</button>
+            <div class="project-modal-body">
+                <img id="modalImg" src="" alt="Project Detail">
+                <div class="project-modal-content">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <p id="modalDetail">Details...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer id="contact" class="footer section-dark">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="DemoCorp Logo" class="logo-img">
+                    <span class="footer-text">Yeti Home <strong>Construction</strong></span>
+                </a>
+                <p>Modern construction solutions focused on sustainability, safety, and uncompromising quality.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="about.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Nepal</p>
+                <p><i class="fas fa-phone-alt"></i> +9779868765092</p>
+                <p><i class="fas fa-envelope"></i> aasharokaya90@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 BuildCorp. All rights reserved. Designed with modern architecture in mind.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.project-card');
+        const modal = document.getElementById('projectModal');
+        const mImg = document.getElementById('modalImg');
+        const mTitle = document.getElementById('modalTitle');
+        const mDetail = document.getElementById('modalDetail');
+        const closeBtn = document.querySelector('.close-modal');
+
+        const openModal = (card) => {
+            mTitle.textContent = card.dataset.title;
+            mDetail.textContent = card.dataset.detail;
+            mImg.src = card.dataset.img;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        cards.forEach(card => card.addEventListener('click', () => openModal(card)));
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => e.target === modal && closeModal());
+        
+        // ESC key to close
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+    </script>
+</body>
+</html>

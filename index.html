@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeti Home | Construction </title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons and Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container flex-between">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Sano-Bharyang,Kathmandu,Nepal</span>
+                <span><i class="fas fa-envelope"></i> yetihomeconstruction@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Yeti Home Construction Logo" class="logo-img">
+                <span>Yeti Home <strong>Construction</strong></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="#about">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Overview</a></li>
+                    </ul>
+                </li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn-primary" id="request-quote-btn" onclick="window.open('https://wa.me/9779764478818?text=Hi%20Yeti%20Home%20Construction%2C%20I%20would%20like%20to%20request%20a%20consultation.', '_blank')">Request Quote</button>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero section-dark">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text-wrapper">
+                <h1 class="hero-title">Shaping<br>Tomorrow's <span class="highlight">DemoCorp</span></h1>
+                <p class="hero-subtitle">We blend precision engineering with modern architectural principles to create
+                    infrastructures that stand the test of time.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary">Our Projects</button>
+                    <button class="btn-outline">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Core Features Cards -->
+    <section class="features-section container">
+        <div class="features-grid">
+            <div class="feature-card gs-card">
+                <div class="card-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>Precision Engineering</h3>
+                <p>Leveraging state-of-the-art computational tools for unparalleled structural integrity.</p>
+            </div>
+            <div class="feature-card active gs-card">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Sustainable Building</h3>
+                <p>Committed to LEED-certified practices and minimizing our global carbon footprint.</p>
+            </div>
+            <div class="feature-card gs-card">
+                <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3>Uncompromising Safety</h3>
+                <p>Prioritizing the health and security of our workforce and the communities we serve.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section container">
+        <div class="about-grid">
+            <div class="about-image gs-image-reveal">
+                <img src="images/about.jpg" alt="Construction Management">
+                <div class="experience-badge">
+                    <span class="exp-years">35+</span>
+                    <span class="exp-text">Years of<br>Excellence</span>
+                </div>
+            </div>
+            <div class="about-content gs-text-reveal">
+                <h4 class="section-badge">About DemoCorp</h4>
+                <h2>A Legacy of Structural Brilliance</h2>
+                <p>Since 1985, DemoCorp has been at the forefront of urban development. We don't just build structures;
+                    we forge landmarks. From cutting-edge commercial properties to expansive public infrastructure, our
+                    team of seasoned architects, civil engineers, and master builders deliver unparalleled results.</p>
+                <ul class="about-list">
+                    <li><i class="fas fa-check-circle"></i> Industry-leading Project Management</li>
+                    <li><i class="fas fa-check-circle"></i> Turnkey Construction Solutions</li>
+                    <li><i class="fas fa-check-circle"></i> Adaptive Re-use & Renovation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner section-dark gs-parallax">
+        <div class="cta-overlay"></div>
+        <div class="container text-center cta-content">
+            <h2>Ready to start your next visionary project?</h2>
+            <p>Our experts are standing by to turn your blueprint into reality.</p>
+            <button class="btn-primary large">Contact Our Engineers</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section container">
+        <div class="section-header text-center gs-fade-up">
+            <h4 class="section-badge">Our Expertise</h4>
+            <h2>Comprehensive Construction Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card gs-3d-card">
+                <img src="images/services-1.jpg" alt="Commercial Architecture">
+                <div class="service-overlay">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Commercial Architecture</h3>
+                    <p>Designing modern workspaces that foster innovation and productivity.</p>
+                    <button class="btn-text">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="service-card gs-3d-card">
+                <img src="images/services-2.jpg" alt="Infrastructure Renewals">
+                <div class="service-overlay">
+                    <div class="service-icon"><i class="fas fa-bridge"></i></div>
+                    <h3>Infrastructure Development</h3>
+                    <p>Building the critical arteries of our civic and urban landscapes.</p>
+                    <button class="btn-text">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="service-card gs-3d-card">
+                <img src="images/services-3.jpg" alt="Smart Home Construction">
+                <div class="service-overlay">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Smart Residential</h3>
+                    <p>Crafting luxurious, tech-integrated homes for the modern lifestyle.</p>
+                    <button class="btn-text">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section section-dark">
+        <div class="container stats-grid">
+            <div class="stat-item gs-counter-trigger">
+                <h3 class="counter" data-target="1250">0</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item gs-counter-trigger">
+                <h3 class="counter" data-target="98">0</h3><span>%</span>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item gs-counter-trigger">
+                <h3 class="counter" data-target="540">0</h3>
+                <p>Expert Employees</p>
+            </div>
+            <div class="stat-item gs-counter-trigger">
+                <h3 class="counter" data-target="35">0</h3>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer section-dark">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="DemoCorp Logo" class="logo-img">
+                    <span class="footer-text">Yeti Home <strong>Construction</strong></span>
+                </a>
+                <p>Modern construction solutions focused on sustainability, safety, and uncompromising quality.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="project.html">Our Projects</a></li>
+                    <li><a href="a">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sano-Bharyang,Kathmandu,Nepal</p>
+                <p><i class="fas fa-phone-alt"></i> +9779764478818</p>
+                <p><i class="fas fa-envelope"></i> yetihomeconstruction@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Yeti Home Construction. All rights reserved. Designed with modern architecture in mind.</p>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <!-- Removed - Using WhatsApp instead -->
+
+    <!-- GSAP & Smooth Scroll Scripts -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
